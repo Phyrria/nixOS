@@ -18,7 +18,13 @@
     ];
   };
 
+  services.system76-scheduler.enable = true;
+
+  services.flatpak.enable = true;
+  
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Force intel-media-driver
+
+  hardware.enableAllFirmware = true;
   
   imports =
     [ # Include the results of the hardware scan.
@@ -27,6 +33,8 @@
       ./modules/bundle.nix
     ];
 
+
+  programs.firefox.enable = true;
 
   networking.hostName = "dedenne"; # Define your hostname.
 
@@ -51,6 +59,10 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+
+  security.polkit.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.swaylock = {};
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

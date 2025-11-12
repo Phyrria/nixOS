@@ -12,18 +12,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # stylix
-    #stylix = {
-     # url = "github:nix-community/stylix";
-     # inputs.nixpkgs.follows = "nixpkgs";
-    #};
-
-    # zen browser
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ...}@inputs:
-
     let
       system = "x86_64-linux";
     in {
@@ -38,7 +29,6 @@
           inherit inputs system;
         };
         modules = [
-          #stylix.nixosModules.stylix
           ./nixos/configuration.nix
         ];
       };

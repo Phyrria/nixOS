@@ -11,8 +11,10 @@
     pkgs-stable.bottles
     helix
     vlc
-    inputs.zen-browser.packages."${system}".specific
     xivlauncher
+    discord
+    libreoffice
+    persepolis
 
     # Coding
     nodejs
@@ -35,6 +37,7 @@
     yt-dlp
     bluez
     bluez-tools
+    pciutils
 
     # GUI utils
     mako
@@ -43,13 +46,29 @@
     xwayland
     wl-clipboard
     cliphist
+    xwayland-satellite
 
     # WMs and bars
     niri
     waybar
 
+    # LSP
+    llvmPackages_20.clang-tools
+    pkgs-stable.texlab
+    nil
+
+    # Screenshots
+    swappy
+    grim
+    slurp
+
     # Other
     home-manager
     mangohud
+    swaybg
+    swayidle
+    swaylock
+    maple-mono.NF-unhinted
   ];
+
 }

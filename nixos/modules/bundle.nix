@@ -5,9 +5,9 @@
     ./sound.nix
     ./network.nix
     ./user.nix
-    #./theme.nix
     ./trim.nix
     ./steam.nix
+    # ./stylix.nix
     ./niri.nix
   ];
 }
