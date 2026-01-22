@@ -1,4 +1,9 @@
-{ pkgs, pkgs-stable, inputs,  ...}: {
+{
+  pkgs,
+  pkgs-stable,
+  inputs,
+  ...
+}: {
   nixpkgs.config = {
     allowUnfree = true;
   };
@@ -14,7 +19,11 @@
     xivlauncher
     discord
     libreoffice
-    persepolis
+    protonplus
+    inputs.zen-browser.packages.${pkgs.system}.default
+    vscodium
+    via
+    heroic
 
     # Coding
     nodejs
@@ -22,9 +31,7 @@
     libgcc
 
     # CLI utils
-    fastfetch
     tree
-    wget
     git
     htop
     nix-index
@@ -32,16 +39,17 @@
     unzip
     zip
     ffmpeg
-    via
-    cava
     yt-dlp
     bluez
     bluez-tools
     pciutils
+    aria2
+    rar
+    unrar
 
     # GUI utils
     mako
-    
+
     # Wayland
     xwayland
     wl-clipboard
@@ -49,13 +57,12 @@
     xwayland-satellite
 
     # WMs and bars
-    niri
     waybar
 
     # LSP
     llvmPackages_20.clang-tools
     pkgs-stable.texlab
-    nil
+    nixd
 
     # Screenshots
     swappy
@@ -68,7 +75,6 @@
     swaybg
     swayidle
     swaylock
-    maple-mono.NF-unhinted
+    alejandra
   ];
-
 }

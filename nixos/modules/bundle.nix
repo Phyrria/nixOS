@@ -7,7 +7,8 @@
     ./user.nix
     ./trim.nix
     ./steam.nix
-    # ./stylix.nix
+    ./stylix.nix
     ./niri.nix
+    ./cachix.nix
   ];
 }
