@@ -12,12 +12,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # niri
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,7 +28,6 @@
     nixpkgs,
     nixpkgs-stable,
     home-manager,
-    niri,
     stylix,
     ...
   } @ inputs: let
@@ -51,7 +44,6 @@
       };
       modules = [
         ./nixos/configuration.nix
-        niri.nixosModules.niri
         stylix.nixosModules.stylix
       ];
     };

@@ -14,7 +14,6 @@
     fuzzel
     thunderbird
     pkgs-stable.bottles
-    helix
     vlc
     xivlauncher
     discord
@@ -23,7 +22,6 @@
     inputs.zen-browser.packages.${pkgs.system}.default
     vscodium
     via
-    heroic
 
     # Coding
     nodejs
@@ -35,7 +33,6 @@
     git
     htop
     nix-index
-    lazygit
     unzip
     zip
     ffmpeg
