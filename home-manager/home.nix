@@ -1,12 +1,12 @@
-{
+{ user, ...}: {
   imports = [
     ./fish.nix
     ./modules/bundle.nix
   ];
 
   home = {
-    username = "phyrria";
-    homeDirectory = "/home/phyrria";
+    username = user;
+    homeDirectory = "/home/${user}";
     stateVersion = "25.05";
   };
 }

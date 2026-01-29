@@ -13,7 +13,7 @@
     kitty
     fuzzel
     thunderbird
-    pkgs-stable.bottles
+    bottles
     vlc
     xivlauncher
     discord

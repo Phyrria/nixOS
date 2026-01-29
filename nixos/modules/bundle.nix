@@ -7,7 +7,7 @@
     ./user.nix
     ./trim.nix
     ./steam.nix
-    ./stylix.nix
+    ./home-manager.nix
     ./cachix.nix
   ];
 }

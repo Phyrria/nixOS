@@ -32,6 +32,7 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
+    user = "phyrria";
   in {
     # system hostname
     nixosConfigurations.dedenne = nixpkgs.lib.nixosSystem {
@@ -50,6 +51,9 @@
 
     homeConfigurations.phyrria = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
+      extraSpecialArgs = {
+        inherit inputs user;
+      };
       modules = [./home-manager/home.nix];
     };
   };
