@@ -45,16 +45,19 @@
       };
       modules = [
         ./nixos/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.${user} = ./home-manager/home.nix;
+            backupFileExtension = "backup";
+
+            extraSpecialArgs = { inherit inputs user; };
+          };
+        }
         stylix.nixosModules.stylix
       ];
-    };
-
-    homeConfigurations.phyrria = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      extraSpecialArgs = {
-        inherit inputs user;
-      };
-      modules = [./home-manager/home.nix];
     };
   };
 }

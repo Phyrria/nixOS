@@ -1,6 +1,5 @@
 { user, ...}: {
   imports = [
-    ./fish.nix
     ./modules/bundle.nix
   ];
 
