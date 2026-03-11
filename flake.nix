@@ -21,6 +21,15 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+    };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -53,7 +62,7 @@
             users.${user} = ./home-manager/home.nix;
             backupFileExtension = "backup";
 
-            extraSpecialArgs = { inherit inputs user; };
+            extraSpecialArgs = {inherit inputs user;};
           };
         }
         stylix.nixosModules.stylix

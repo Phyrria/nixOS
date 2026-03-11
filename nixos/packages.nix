@@ -13,7 +13,7 @@
     kitty
     fuzzel
     thunderbird
-    bottles
+    pkgs-stable.bottles
     vlc
     xivlauncher
     discord
@@ -22,6 +22,8 @@
     inputs.zen-browser.packages.${pkgs.system}.default
     vscodium
     via
+    forge-mtg
+    blender
 
     # Coding
     nodejs
@@ -53,9 +55,6 @@
     cliphist
     xwayland-satellite
 
-    # WMs and bars
-    waybar
-
     # LSP
     llvmPackages_20.clang-tools
     pkgs-stable.texlab
@@ -70,8 +69,7 @@
     home-manager
     mangohud
     swaybg
-    swayidle
-    swaylock
     alejandra
+    wireplumber
   ];
 }

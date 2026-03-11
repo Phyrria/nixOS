@@ -1,6 +1,6 @@
-{ user, ...}: {
+{user, ...}: {
   imports = [
-    ./modules/bundle.nix
+    ./modules/default.nix
   ];
 
   home = {

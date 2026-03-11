@@ -8,5 +8,6 @@
     ./trim.nix
     ./steam.nix
     ./cachix.nix
+    ./niri.nix
   ];
 }
