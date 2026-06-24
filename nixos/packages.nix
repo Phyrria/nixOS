@@ -8,6 +8,10 @@
     allowUnfree = true;
   };
 
+  programs.nh.enable = true;
+
+  services.udev.packages = [pkgs.solaar];
+
   environment.systemPackages = with pkgs; [
     # Desktop apps
     kitty
@@ -24,6 +28,7 @@
     via
     forge-mtg
     blender
+    solaar
 
     # Coding
     nodejs
@@ -45,9 +50,12 @@
     aria2
     rar
     unrar
+    fastfetch
+    yazi
 
     # GUI utils
     mako
+    #inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Wayland
     xwayland

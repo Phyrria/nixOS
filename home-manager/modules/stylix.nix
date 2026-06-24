@@ -18,7 +18,7 @@
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
 
-    image = ./Wallpapers/TreeLake.png;
+    image = ./Wallpapers/wallhaven-o31o2p_1920x1080.png;
     polarity = "dark";
 
     fonts = {

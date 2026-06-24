@@ -4,7 +4,7 @@
   inputs = {
     # NixOS official package source
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
 
     # home-manager
     home-manager = {
@@ -27,13 +27,17 @@
     };
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia/legacy-v4";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    omnisearch = {
+      url = "git+https://tangled.org/lesbian.skin/omnisearch-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs = {
-    self,
     nixpkgs,
     nixpkgs-stable,
     home-manager,
@@ -43,30 +47,34 @@
     system = "x86_64-linux";
     user = "phyrria";
   in {
-    # system hostname
-    nixosConfigurations.dedenne = nixpkgs.lib.nixosSystem {
-      specialArgs = {
-        pkgs-stable = import nixpkgs-stable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-        inherit inputs system;
-      };
-      modules = [
-        ./nixos/configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.${user} = ./home-manager/home.nix;
-            backupFileExtension = "backup";
+    nixosConfigurations = {
+      dedenne = nixpkgs.lib.nixosSystem {
+        inherit system;
 
-            extraSpecialArgs = {inherit inputs user;};
+        specialArgs = {
+          pkgs-stable = import nixpkgs-stable {
+            inherit system;
+            config.allowUnfree = true;
           };
-        }
-        stylix.nixosModules.stylix
-      ];
+          inherit inputs system;
+        };
+        modules = [
+          ./hosts/dedenne/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.${user} = ./home-manager/home.nix;
+              backupFileExtension = "backup";
+
+              extraSpecialArgs = {inherit inputs user;};
+            };
+          }
+
+          stylix.nixosModules.stylix
+        ];
+      };
     };
   };
 }

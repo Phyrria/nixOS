@@ -23,8 +23,6 @@
 
   services.system76-scheduler.enable = true;
 
-  #services.flatpak.enable = true;
-
   environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";}; # Force intel-media-driver
 
   hardware.enableAllFirmware = true;
@@ -33,8 +31,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./packages.nix
-    ./modules/default.nix
+    ../../nixos/packages.nix
+    ../../nixos/modules/default.nix
   ];
 
   #programs.firefox.enable = true;
@@ -72,6 +70,12 @@
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gnome pkgs.xdg-desktop-portal];
+
+  services.xserver = {
+    xkb.layout = "us,de";
+    xkbVariant = "";
+    xkbOptions = "grp:win_space_toggle";
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

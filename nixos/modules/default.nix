@@ -9,5 +9,7 @@
     ./steam.nix
     ./cachix.nix
     ./niri.nix
+    ./virtmanager.nix
+    ./omnisearch.nix
   ];
 }
