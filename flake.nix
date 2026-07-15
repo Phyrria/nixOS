@@ -32,7 +32,12 @@
     };
 
     omnisearch = {
-      url = "git+https://tangled.org/lesbian.skin/omnisearch-flake";
+      url = "git+https://git.alovely.space/Nyx/OmniSearch.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    halley = {
+      url = "github:binarylinuxx/halley-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -42,6 +47,7 @@
     nixpkgs-stable,
     home-manager,
     stylix,
+    halley,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -73,6 +79,15 @@
           }
 
           stylix.nixosModules.stylix
+
+          inputs.omnisearch.nixosModules.default
+
+          halley.nixosModules.default
+          {
+            programs.halley = {
+              enable = true;
+            };
+          }
         ];
       };
     };

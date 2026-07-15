@@ -11,6 +11,8 @@
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
+  nyx.services.omnisearch.enable = true;
+
   # gpu driver stuff
   hardware.graphics = {
     enable = true;
@@ -57,11 +59,6 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
-
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.swaylock = {};
@@ -71,10 +68,9 @@
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gnome pkgs.xdg-desktop-portal];
 
-  services.xserver = {
-    xkb.layout = "us,de";
-    xkbVariant = "";
-    xkbOptions = "grp:win_space_toggle";
+  services.xserver.xkb = {
+    layout = "us,de";
+    options = "grp:win_space_toggle";
   };
 
   # Enable CUPS to print documents.
@@ -82,6 +78,10 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  systemd.tmpfiles.rules = [
+    "L+ /sbin/ldconfig - - - - /run/current-system/sw/bin/ldconfig"
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -29,6 +29,13 @@
     forge-mtg
     blender
     solaar
+    protontricks
+    p7zip
+    winetricks
+    limo
+    (limo.override {withUnrar = true;})
+    kdePackages.dolphin
+    kdePackages.dolphin-plugins
 
     # Coding
     nodejs
@@ -52,6 +59,9 @@
     unrar
     fastfetch
     yazi
+    file
+    psmisc
+    wineWow64Packages.staging
 
     # GUI utils
     mako
