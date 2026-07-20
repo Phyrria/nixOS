@@ -1,15 +1,4 @@
-{pkgs, ...}: let
-  cursorPkg = pkgs.catppuccin-cursors.latteLight;
-  cursorName = "catppuccin-latte-light-cursors";
-
-  defaultCursorTheme = pkgs.runCommand "default-cursor-theme" {} ''
-    mkdir -p $out/share/icons/default
-    cat > $out/share/icons/default/index.theme <<EOF
-    [Icon Theme]
-    Inherits=${cursorName}
-    EOF
-  '';
-in {
+{pkgs, ...}: {
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
 
@@ -23,15 +12,13 @@ in {
       background = "${../../home-manager/modules/Wallpapers/wallhaven-o31o2p_1920x1080.png}";
       loginBackground = true;
     })
-    cursorPkg
-    defaultCursorTheme
+    pkgs.catppuccin-cursors.latteLight
   ];
 
   services.displayManager.sddm = {
     theme = "catppuccin-latte-rosewater";
-    package = pkgs.kdePackages.sddm;
     settings.Theme = {
-      CursorTheme = cursorName;
+      CursorTheme = "catppuccin-latte-light-cursors";
       CursorSize = 48;
     };
   };
