@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm.wayland.compositor = "kwin";
+  qt.enable = true;
 
   environment.systemPackages = [
     (pkgs.catppuccin-sddm.override {
@@ -19,7 +21,7 @@
     theme = "catppuccin-latte-rosewater";
     settings.Theme = {
       CursorTheme = "catppuccin-latte-light-cursors";
-      CursorSize = 48;
+      CursorSize = 24;
     };
   };
 }
